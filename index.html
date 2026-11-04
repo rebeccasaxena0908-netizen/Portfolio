@@ -128,6 +128,11 @@ h2{
 .proj ul{margin:0;padding-left:1.05rem}
 .proj li{font-size:var(--f1);color:#4B4142;margin:.22rem 0}
 .proj li::marker{color:var(--blush-deep)}
+.links{margin:.55rem 0 0;display:flex;flex-wrap:wrap;gap:.9rem}
+.links a{font-family:Montserrat,sans-serif;font-weight:600;font-size:var(--f0);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(185,115,124,.45);
+  padding-bottom:1px;transition:border-color .2s}
+.links a:hover{border-bottom-color:var(--rose)}
 .proj::before{
   content:"";position:absolute;left:-1.6rem;top:1.35rem;width:0;height:1px;background:var(--rose);
   transition:width .25s ease;
@@ -215,7 +220,12 @@ main{animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
   .skill{grid-template-columns:1fr;gap:.3rem}
   .certgrid{grid-template-columns:1fr}
   .skill dt{padding-top:0}
-  .proj::before{display:none}
+  .links{margin:.55rem 0 0;display:flex;flex-wrap:wrap;gap:.9rem}
+.links a{font-family:Montserrat,sans-serif;font-weight:600;font-size:var(--f0);letter-spacing:.12em;
+  text-transform:uppercase;color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(185,115,124,.45);
+  padding-bottom:1px;transition:border-color .2s}
+.links a:hover{border-bottom-color:var(--rose)}
+.proj::before{display:none}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -244,13 +254,14 @@ main{animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
     <p class="role fade">Fresher</p>
 
     <h2 class="railhead">About me</h2>
-    <p>Third-year BCA student at Christ (Deemed to be University) who builds and ships full-stack projects independently — ten of them, spanning React/TypeScript front ends, .NET and Node back ends, Java desktop applications, Android, and Python tooling.</p>
-    <p>Comfortable taking an idea from architecture through database design, real-time networking and deployment. Looking for a software engineering internship where I can contribute working code to a fast-moving team.</p>
+    <p>Third-year BCA student at Christ (Deemed to be University) building applied AI into working software: AquaAlert, a multilingual flood-crisis classifier fine-tuned on MuRIL that lifts macro-F1 from 0.32 to 0.74 over a keyword baseline, and CellSpark, an mRNA vaccine design pipeline pairing MHC binding prediction with retrieval-grounded explanations over PubMed.</p>
+    <p>Trained through Intel® Unnati's Generative AI and Artificial Intelligence programs. Twelve projects spanning React/TypeScript, .NET, Flask and Node mean I can carry a model from notebook to something people actually use. Open to artificial intelligence opportunities where I can contribute working code to a fast-moving team.</p>
 
     <h2 class="railhead">Contact</h2>
     <div class="contact">
       <a href="mailto:rebeccasaxena30@gmail.com">rebeccasaxena30@gmail.com</a>
       <a href="tel:+917991442466">7991442466</a>
+      <a href="https://github.com/rebeccasaxena0908-netizen" target="_blank" rel="noopener">github.com/rebeccasaxena0908-netizen</a>
       <span>Ghaziabad, Uttar Pradesh</span>
     </div>
 
@@ -281,11 +292,57 @@ main{animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
 
   <main>
     <section id="intro">
-      <p class="lede">Ten projects, built end to end. Cryptography engines, peer-to-peer networks, real-time multiplayer, AI-assisted code review — most of them started as a question I wanted answered, and ended as something that runs.</p>
+      <p class="lede">Twelve projects, built end to end. A multilingual flood-crisis classifier, an mRNA vaccine design pipeline, a NASA data pipeline, cryptography engines, real-time multiplayer — most started as a question I wanted answered, and ended as something that runs.</p>
     </section>
 
     <section id="work">
       <h2>Projects</h2>
+
+      <article class="proj">
+        <h3>AquaAlert — multilingual AI for flood crisis response</h3>
+        <p class="stack">Python 3.11 · PyTorch · Hugging Face Transformers · FAISS · FastAPI · Streamlit · SQLite</p>
+        <ul>
+          <li>Reads flood-time posts in English, Hindi, Malayalam and Bengali plus their romanised code-mixed forms, turning them into classified help requests on a map with rumour flags, needs-to-offers matching and district early warnings.</li>
+          <li>Fine-tuned MuRIL into a 7-class crisis classifier scoring 0.736 macro-F1 on the 15,160-tweet HumAID test split, against 0.315 for a keyword baseline; 4,552 Gemini-generated code-mixed training posts lifted Hinglish accuracy from 0.44 to 0.67.</li>
+          <li>FAISS and multilingual-MiniLM RAG chatbot answers from NDMA/SDMA guidance with citations, behind an 8-endpoint FastAPI service and a Streamlit/Folium dashboard. 366 tests pass on a clean clone.</li>
+          <li>A research prototype — not tested with responders or in a real flood.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/aquaalert" target="_blank" rel="noopener">View code</a></p>
+      </article>
+
+      <article class="proj">
+        <h3>CellSpark — personalised mRNA cancer vaccine design tool</h3>
+        <p class="stack">Python 3.11 · MHCflurry · ChromaDB · MySQL · AWS S3, RDS, EC2 · Node.js</p>
+        <ul>
+          <li>Five-tier pipeline turning a patient tumour mutation file into a synthesis-ready mRNA design in about 25 seconds: peptide screening, MHC-binding selection, codon-optimised build, a cited copilot and a lipid-nanoparticle worksheet.</li>
+          <li>Knuth-Morris-Pratt and Boyer-Moore screen peptides against 20,431 healthy proteins; MHCflurry ranks binding across patient HLA alleles with agretopicity as its own column — 349 mutations narrowed to 12,711 candidates and 10 targets at a best affinity of 10.4 nM.</li>
+          <li>Codon optimiser lifts the adaptation index from 0.54 to 1.00 with uridine depletion and a back-translation check; the copilot answers from 618 PubMed abstracts with citations and an offline fallback.</li>
+          <li>Ported to AWS: S3 for uploads and results, the 11-table schema on RDS MySQL 8.4, a t3.medium EC2 instance serving API and site together, behind a storage adapter that falls back to local disk and XAMPP. 185 tests pass with no AWS configuration.</li>
+          <li>A computational design-support tool — nothing validated in a lab.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/Cellspark" target="_blank" rel="noopener">View code</a></p>
+      </article>
+
+      <article class="proj">
+        <h3>Bug Universe — AI code review &amp; bug tracking</h3>
+        <p class="stack">React · TypeScript · Vite · Tailwind CSS · Node.js · Express · MongoDB Atlas · Gemini API</p>
+        <ul>
+          <li>Issue tracker covering the full bug lifecycle, with a real-time dashboard, threaded comments and role-based JWT authentication.</li>
+          <li>Integrates the Google Gemini API for automated code review and smart severity auto-detection on incoming reports.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/Bug-Universe-" target="_blank" rel="noopener">View code</a></p>
+      </article>
+
+      <article class="proj">
+        <h3>Asteroid Watch — automated near-Earth asteroid data pipeline</h3>
+        <p class="stack">Python · MySQL · PHP/PDO · Three.js · Chart.js · pytest</p>
+        <ul>
+          <li>Daily ETL from NASA's NeoWs API: flattens nested JSON, runs data-quality checks and idempotent upserts, so re-running a date range inserts no duplicate rows.</li>
+          <li>Medallion architecture — raw JSON, typed and deduplicated, MySQL views — with retries and exponential backoff.</li>
+          <li>Traced a duplicate-ID defect that overcounted hazardous approaches by about 12%, and cross-checked results against NASA JPL's close-approach API. 96 unit tests, 10 integration tests, daily run automated with launchd.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/asteroid-watch" target="_blank" rel="noopener">View code</a></p>
+      </article>
 
       <article class="proj">
         <h3>Aether — autonomous multi-cloud cost optimizer</h3>
@@ -294,59 +351,48 @@ main{animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
           <li>Visualises AWS, Azure and GCP spend as a real-time 3D constellation and flags wasteful resources.</li>
           <li>Autonomous agents remediate issues, streaming each step live over SignalR; Ctrl+K palette of 15 commands.</li>
         </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/Aether" target="_blank" rel="noopener">View code</a></p>
+      </article>
+
+      <article class="proj">
+        <h3>PawConnect — stray animal rescue &amp; adoption platform</h3>
+        <p class="stack">Python · Flask · Streamlit · PyQt6 · SQLAlchemy · Alembic · PostgreSQL</p>
+        <ul>
+          <li>One Flask REST API with JWT authentication and role-based permissions serves both a Streamlit web app and a PyQt6 desktop console, across five user roles.</li>
+          <li>Race-safe workflows — conditional case acceptance and locked fund allocation — with transactional audit logging, verified by threaded tests; money stored as integer paise to avoid float drift.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/PawConnect" target="_blank" rel="noopener">View code</a></p>
       </article>
 
       <article class="proj">
         <h3>Enigma — gamified cybersecurity learning platform</h3>
         <p class="stack">Java 21 · JavaFX · SQLite · Maven · Java JCA</p>
         <ul>
-          <li>Teaches cryptography through 9 interactive cipher modules (Caesar, AES, Vigenère, XOR, SHA) built on the Java JCA.</li>
+          <li>Teaches cryptography through interactive cipher modules (Caesar, AES, Vigenère, ROT13, XOR, Base64, SHA, password analysis) built on the Java JCA.</li>
           <li>Adds a node-based knowledge mapper, an XP-driven Kanban quest board, 6 crypto mini-games and per-user SQLite accounts. Mapped to UN SDGs 4, 8, 9, 10 and 17.</li>
         </ul>
-      </article>
-
-      <article class="proj">
-        <h3>Bug Universe — AI code review &amp; bug tracking</h3>
-        <p class="stack">React · TypeScript · Node.js · Express · MongoDB Atlas · Gemini API</p>
-        <ul>
-          <li>Issue tracker covering the full bug lifecycle, with a real-time dashboard, threaded comments and role-based JWT authentication.</li>
-          <li>Integrates the Google Gemini API for automated code review and smart severity auto-detection on incoming reports.</li>
-        </ul>
-      </article>
-
-      <article class="proj">
-        <h3>Safeword — NLP-driven emergency account lockdown</h3>
-        <p class="stack">Python · IMAP/SMTP · NLP intent parsing · Mock service sandbox</p>
-        <ul>
-          <li>Parses a distress email from a compromised user, scores sender trust, then decides a graduated response tier before acting.</li>
-          <li>Runs lockdown as a dependency-ordered chain (sessions → passwords → bank → email) so recovery inboxes go last.</li>
-        </ul>
-      </article>
-
-      <article class="proj">
-        <h3>Cosmos Wallet — P2P blockchain simulation</h3>
-        <p class="stack">C# · .NET 10 · Avalonia UI · WebSocketSharp · RSA · SHA-256</p>
-        <ul>
-          <li>Cross-platform wallet on a real peer-to-peer WebSocket network: nodes discover each other, sync ledgers and resolve forks by longest-chain rule.</li>
-          <li>Proof-of-work mining with adjustable difficulty, RSA-signed transactions and a tamper-detection mode.</li>
-        </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/Enigma" target="_blank" rel="noopener">View code</a></p>
       </article>
 
       <article class="proj">
         <h3>Skribbl clone — real-time multiplayer drawing game</h3>
         <p class="stack">React 18 · TypeScript · Vite · Node.js · Express · Socket.IO · HTML5 Canvas</p>
         <ul>
-          <li>Drawing strokes, guesses and scores broadcast between browsers over Socket.IO, with polling fallback and auto-reconnect.</li>
-          <li>Server built on an OOP room/game hierarchy driving a five-phase round state machine, countdown and hint-reveal timers.</li>
+          <li>Drawing strokes, guesses and scores broadcast between browsers over Socket.IO, with a public room browser, private rooms on 6-character invite codes and auto-reconnect.</li>
+          <li>An OOP room/game/player hierarchy drives turn-based rounds, scoring and progressive letter hints, across 8 word categories and 5 languages.</li>
+          <li>Deployed end to end — client on Vercel, server on Railway.</li>
         </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/-skribbl-clone" target="_blank" rel="noopener">View code</a> <a href="https://skribbl-clone-steel.vercel.app" target="_blank" rel="noopener">Live demo</a></p>
       </article>
 
       <article class="proj">
-        <h3>PocketScholar — student budgeting app</h3>
-        <p class="stack">Kotlin · Android Studio</p>
+        <h3>CosmosWallet — P2P cryptocurrency simulation</h3>
+        <p class="stack">C# · .NET 10 · Avalonia UI · WebSocketSharp · RSA · SHA-256</p>
         <ul>
-          <li>Daily expense tracking, income-versus-spending visualisations, goal setting and smart budget suggestions.</li>
+          <li>Cross-platform wallet on a real peer-to-peer WebSocket network: nodes discover each other, sync ledgers and resolve forks by longest-chain rule.</li>
+          <li>Proof-of-work mining with adjustable difficulty, RSA-signed transactions and a tamper-detection mode.</li>
         </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/CosmosWallet" target="_blank" rel="noopener">View code</a></p>
       </article>
 
       <article class="proj">
@@ -356,13 +402,23 @@ main{animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
           <li>Mood and energy journal with eight mood categories, activity tagging, gratitude prompts and weekly insight reports.</li>
           <li>Plotly analytics surface trends, streaks and mood distribution; all data stays in a local CSV — no cloud, no accounts, no tracking.</li>
         </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/Kawaii-Mood-Journal-Python-" target="_blank" rel="noopener">View code</a></p>
       </article>
 
       <article class="proj">
-        <h3>UP-Tourism — travel portal</h3>
+        <h3>PocketScholar — student budgeting app</h3>
+        <p class="stack">Kotlin · Android Studio</p>
+        <ul>
+          <li>Daily expense tracking, income-versus-spending visualisations, goal setting and smart budget suggestions.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/rebeccasaxena0908-netizen/PocketScholar" target="_blank" rel="noopener">View code</a></p>
+      </article>
+
+      <article class="proj">
+        <h3>UP-Tourism — travel portal for Uttar Pradesh</h3>
         <p class="stack">HTML5 · CSS3 · JavaScript · PHP · MySQL</p>
         <ul>
-          <li>A PHP/MySQL portal for Uttar Pradesh's landmarks and events, browsable across themed pages.</li>
+          <li>A PHP/MySQL portal presenting Uttar Pradesh's landmarks and events across themed, browsable pages.</li>
         </ul>
       </article>
     </section>
@@ -377,25 +433,25 @@ main{animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
           <span class="tag">React 18</span><span class="tag">Vite</span><span class="tag">Tailwind CSS</span><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">Three.js / R3F</span><span class="tag">Chart.js</span><span class="tag">Plotly</span><span class="tag">Canvas</span>
         </dd></div>
         <div class="skill"><dt>Backend</dt><dd>
-          <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">.NET 10 Web API</span><span class="tag">EF Core</span><span class="tag">SignalR</span><span class="tag">Socket.IO</span><span class="tag">REST APIs</span><span class="tag">JWT auth</span>
+          <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">Flask</span><span class="tag">FastAPI</span><span class="tag">.NET 10 Web API</span><span class="tag">EF Core</span><span class="tag">SQLAlchemy</span><span class="tag">Alembic</span><span class="tag">SignalR</span><span class="tag">Socket.IO</span><span class="tag">REST APIs</span><span class="tag">JWT auth</span>
         </dd></div>
         <div class="skill"><dt>Desktop &amp; mobile</dt><dd>
-          <span class="tag">JavaFX</span><span class="tag">Avalonia UI (XAML)</span><span class="tag">Android Studio</span><span class="tag">Gradio</span>
+          <span class="tag">JavaFX</span><span class="tag">Avalonia UI (XAML)</span><span class="tag">Android Studio</span><span class="tag">PyQt6</span><span class="tag">Streamlit</span><span class="tag">Gradio</span>
         </dd></div>
         <div class="skill"><dt>Databases</dt><dd>
-          <span class="tag">MongoDB Atlas</span><span class="tag">MySQL</span><span class="tag">SQLite</span><span class="tag">XAMPP</span>
+          <span class="tag">MongoDB Atlas</span><span class="tag">MySQL / MariaDB</span><span class="tag">PostgreSQL</span><span class="tag">SQLite</span><span class="tag">XAMPP</span>
         </dd></div>
         <div class="skill"><dt>AI &amp; data</dt><dd>
-          <span class="tag">Google Gemini API</span><span class="tag">NLP pipelines</span><span class="tag">Pandas</span><span class="tag">Google Colab</span>
+          <span class="tag">PyTorch</span><span class="tag">Hugging Face Transformers</span><span class="tag">MuRIL / MiniLM fine-tuning</span><span class="tag">FAISS vector search</span><span class="tag">RAG (ChromaDB)</span><span class="tag">Google Gemini API</span><span class="tag">MHCflurry</span><span class="tag">ETL pipeline design</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Google Colab</span>
         </dd></div>
         <div class="skill"><dt>Cloud</dt><dd>
-          <span class="tag">AWS core services</span><span class="tag">AWS Academy Cloud Foundations</span><span class="tag">Cloud cost &amp; billing concepts</span>
+          <span class="tag">AWS S3</span><span class="tag">AWS RDS</span><span class="tag">AWS EC2</span><span class="tag">IAM credentials</span><span class="tag">Cloud cost &amp; billing concepts</span>
         </dd></div>
         <div class="skill"><dt>IoT &amp; hardware</dt><dd>
           <span class="tag">Arduino / ESP32</span><span class="tag">Tinkercad</span><span class="tag">Sensors &amp; actuators</span>
         </dd></div>
         <div class="skill"><dt>Tools</dt><dd>
-          <span class="tag">Git &amp; GitHub</span><span class="tag">Maven</span><span class="tag">npm</span><span class="tag">Shopify (Liquid)</span><span class="tag">Postman</span>
+          <span class="tag">Git &amp; GitHub</span><span class="tag">pytest</span><span class="tag">Docker Compose</span><span class="tag">Maven</span><span class="tag">npm</span><span class="tag">Makefile</span><span class="tag">Shopify (Liquid)</span><span class="tag">Postman</span>
         </dd></div>
         <div class="skill"><dt>Concepts</dt><dd>
           <span class="tag">OOP</span><span class="tag">Data structures</span><span class="tag">Cryptography (AES, RSA, SHA-256)</span><span class="tag">P2P networking</span><span class="tag">Graph algorithms</span>
@@ -488,7 +544,7 @@ main{animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
 
     <section id="hire">
       <div class="close">
-        <p>Available for a software engineering internship.</p>
+        <p>Open to artificial intelligence opportunities.</p>
         <div class="actions">
           <a class="btn" href="mailto:rebeccasaxena30@gmail.com?subject=Internship%20opportunity">Email me</a>
           <a class="btn ghost" href="tel:+917991442466">Call me</a>
